@@ -1,0 +1,49 @@
+{% extends "homepage/base.html" %}
+{% block content %}
+
+    <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">
+                  Recent scientific Articles
+                </h2>
+              </div>
+            </div>
+          </div>
+        {% for article in articles %}
+        <div class="row row-cards">
+            <div class="col-md-6 col-xl-6">
+              <div class="row row-cards">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title">{{ article.title }}</h3>
+                        <em>{{ article.author }}</em>
+                      <p>{{ article.content}}</p>
+                    </div>
+                      <div class="card-img-bottom img-responsive img-responsive-16by9" style="background-image: url(./static/photos/56614e12b2a7bd68.jpg)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-6">
+              <div class="row row-cards">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                        {% if article.header_image %}
+                        <img src="{{ article.header_image.url }}" class="w-100 h-100 object-cover" alt="Card side image">
+                        {% endif %}
+                    </div>
+                      <div class="card-img-bottom img-responsive img-responsive-16by9" style="background-image: url(./static/photos/56614e12b2a7bd68.jpg)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

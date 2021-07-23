@@ -1,0 +1,8 @@
+Dear {{ user }},
+
+Please click the following link to activate your Account:
+{{ scheme }}://{{ site }}{% url 'django_registration_activate' activation_key=activation_key %}
+
+Please activate your Account within {{ expiration_days }} days.
+
+Thank you a lot.

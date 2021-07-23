@@ -1,0 +1,47 @@
+{% extends "homepage/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="col-md-8 col-xl-6" style="position: relative; left: 25%;">
+        <div class="card">
+            <div class="card-body">
+                {% comment %}
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <fieldset class="form-fieldset">
+                        {{ form|crispy }}
+                    </fieldset>
+
+
+                    {{ form.non_field_errors }}
+
+                    <fieldset class="form-fieldset">
+
+                        {% include "homepage/form_snippet.html" %}
+
+                        <div class="mb-3">
+                            <label class="form-check">
+                                <input type="checkbox" name="tos" class="checkboxinput form-check-input" required="" id="id_tos">
+                                <span class="form-check-label required">{{ form.tos.label }}</span>
+                                {{ form.tos.errors }}
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <input type="submit" class="btn bg-azure-lt" value="Submit"/>
+                    </div>
+
+                </form>
+                {% endcomment %}
+
+                {% crispy form %}
+            </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        Already have an Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

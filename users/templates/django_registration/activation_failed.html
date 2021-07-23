@@ -1,0 +1,11 @@
+{% extends "homepage/base.html" %}
+{% block content %}
+            <div class="alert alert-warning">
+                <h3 class="card-title">{{ activation_error.message }} [code: {{ activation_error.code }}]</h3>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    Please try again or contact us. <a class="ml-2" href="{% url 'home' %}">Home</a>
+                </small>
+            </div>
+{% endblock content %}

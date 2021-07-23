@@ -1,0 +1,22 @@
+{% load crispy_forms_field %}
+
+<div class="mb-3">
+    <label class="form-check">
+        <input type="checkbox" name="{{ field.name }}" id="{{ field.id_for_label }}" class="checkboxinput form-check-input">
+        <span class="form-label {% if field.field.required %} requiredField{% endif %}">
+            {{ field.label }}{% if field.field.required %}
+            <span class="asteriskField">*</span>
+            {% endif %}
+        </span>
+    </label>
+</div>
+
+
+
+{% comment %}
+    {% for error in field.errors %}
+    <div>
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="invalid-feedback"><strong>{{ error }}</strong></p>
+    </div>
+    {% endfor %}
+{% endcomment %}

@@ -1,0 +1,12 @@
+{% for field in form %}
+    {% if field.name != 'tos' %}
+        <div class="mb-3">
+            <label class="form-label">
+                {{ field.label }}
+                <span class="text-red">{% if field.field.required %}*{% endif %}</span>
+            </label>
+            {{ field }}
+            {{ field.errors }}
+        </div>
+    {% endif %}
+{% endfor %}

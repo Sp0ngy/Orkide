@@ -1,0 +1,32 @@
+{% extends "homepage/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="card-header">
+                <div class="d-none d-xl-block ps-2 order-md-last">
+                  <h2>{{ user.username }}</h2>
+                  <h3 class="mt-1 small text-muted">{{ user.email }}</h3>
+                </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <fieldset class="form-fieldset">
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <input type="submit" class="btn bg-azure-lt" value="Update"/>
+                </div>
+        </form>
+            </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        Back to the main page? <a class="ml-2" href="{% url 'home' %}">Home</a>
+                    </small>
+                </div>
+            </div>
+
+    </div>
+</div>
+{% endblock content %}
